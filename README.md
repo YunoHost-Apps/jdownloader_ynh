@@ -16,6 +16,7 @@ JDownloader
          $ sudo yunohost app install https://github.com/YunoHost-Apps/jdownloader_ynh
  1. Admin username is : **root**.
 
+ 2. mv cfg.zip /home/pc/.jd/ (Need to copy cfg folder in user/home/.jd/) 
  
 ### Upgrade this package:
 
