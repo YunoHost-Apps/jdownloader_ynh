@@ -80,13 +80,21 @@ port=$(ynh_find_port 8096)
 # Open this port
 yunohost firewall allow --no-upnp TCP $port 2>&1
 ynh_app_setting_set $app port $port
+#==============================================
+# INSTALL JAVA
+#==============================================
+
+ynh_install_app_dependencies openjdk-8-jre-headless
 
 #==============================================
-# INSTALL EMBY
+# INSTALL JDOWNLOADER
 #==============================================
 
-wget --no-verbose 'https://github.com/MediaBrowser/Emby.Releases/releases/download/3.5.3.0/emby-server-deb_3.5.3.0_amd64.deb'
-dpkg --install emby-server-deb_3.5.3.0_amd64.deb
+sudo mkdir /opt/jdownloader
+wget --no-verbose 'https://github.com/YunoHost-Apps/jdownloader_ynh/releases/download/2.0/JDownloader.jar'
+sudo mv jdownloader.jar /opt/jdownloader
+sudo chown media:media /opt/jdownloader
+java -jar /opt/jdownloader/JDownloader.jar -norestart
 
 #=================================================
 # NGINX CONFIGURATION
@@ -105,7 +113,7 @@ ynh_system_user_create $app
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
-#cp -a ../conf/onlyoffice-documentserver.conf /etc/onlyoffice/documentserver/nginx/onlyoffice-documentserver.conf
+cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
 #ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
 #ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
 
@@ -146,4 +154,5 @@ if [ $is_public -eq 1 ]; then
 fi
 
 # Reload services
+systemctl enable jdownloader.service
 systemctl restart nginx
