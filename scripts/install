@@ -86,7 +86,7 @@ ynh_app_setting_set $app port $port
 #==============================================
 
 #ynh_install_app_dependencies openjdk-8-jre-headless
-sudo apt install openjdk-8-jre-headless
+sudo apt install -y openjdk-8-jre-headless
 
 #==============================================
 # INSTALL JDOWNLOADER
@@ -103,7 +103,7 @@ java -jar /opt/jdownloader/JDownloader.jar -norestart
 #=================================================
 
 # Create a dedicated nginx config
-ynh_add_nginx_config
+#ynh_add_nginx_config
 
 #=================================================
 # CREATE DEDICATED USER
@@ -157,4 +157,4 @@ fi
 
 # Reload services
 systemctl enable jdownloader.service
-systemctl restart nginx
+#systemctl restart nginx
