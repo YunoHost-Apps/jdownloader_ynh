@@ -85,7 +85,7 @@ ynh_app_setting_set $app port $port
 # INSTALL JAVA
 #==============================================
 
-ynh_install_app_dependencies openjdk-8-jre-headless
+ynh_package_install openjdk-8-jre-headless
 #apt install -y openjdk-8-jre-headless
 
 #==============================================
