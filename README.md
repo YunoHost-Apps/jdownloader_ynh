@@ -21,7 +21,7 @@ JDownloader
  
  3. Run JDownloader :
  
-         $ sudo java -jar /opt/jdownloader/JDownloader.jar -norestart
+         $ java -jar /opt/jdownloader/JDownloader.jar -norestart
  
  4. Connect JDownloader :
  
