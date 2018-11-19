@@ -17,7 +17,7 @@ JDownloader
          
  2. Run & Connect JDownloader :
  
-         $ java -jar /opt/jdownloader/JDownloader.jar -norestart
+         $ sudo java -jar /opt/jdownloader/JDownloader.jar -norestart
  
 ### Upgrade this package:
 
