@@ -14,7 +14,10 @@ JDownloader
  1. App can be installed by YunoHost **admin web-interface** or by **running following command**:
 
          $ sudo yunohost app install --debug https://github.com/YunoHost-Apps/jdownloader_ynh
- 1. Admin username is : **root**. 
+         
+ 2. Run & Connect JDownloader :
+ 
+         $ java -jar /opt/jdownloader/JDownloader.jar -norestart
  
 ### Upgrade this package:
 
