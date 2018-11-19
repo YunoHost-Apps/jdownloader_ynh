@@ -1,6 +1,6 @@
 {
     "name": "JDownloader",
-    "id": "JDownloader",
+    "id": "jdownloader",
     "packaging_format": 1,
     "description": {
         "en": "JDownloader package for YunoHost.",
