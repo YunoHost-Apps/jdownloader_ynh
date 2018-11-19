@@ -19,12 +19,13 @@ JDownloader
         
          https://my.jdownloader.org/
  
- 3. Run JDownloader :
+ 3. Run JDownloader for Update :
  
-         $ java -jar /opt/jdownloader/JDownloader.jar -norestart && java -jar /opt/jdownloader/JDownloader.jar -norestart
+         $ java -jar /opt/jdownloader/JDownloader.jar -norestart
  
  4. Connect JDownloader :
  
+         $ java -jar /opt/jdownloader/JDownloader.jar -norestart
          in cli type y for connect with your mail and password
          
 ### Upgrade this package:
