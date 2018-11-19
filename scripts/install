@@ -95,7 +95,7 @@ sudo apt install openjdk-8-jre-headless
 sudo mkdir /opt/jdownloader
 wget --no-verbose 'https://github.com/YunoHost-Apps/jdownloader_ynh/releases/download/2.0/JDownloader.jar'
 sudo mv JDownloader.jar /opt/jdownloader
-sudo chown media:media /opt/jdownloader
+#sudo chown media:media /opt/jdownloader
 java -jar /opt/jdownloader/JDownloader.jar -norestart
 
 #=================================================
