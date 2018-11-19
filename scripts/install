@@ -95,8 +95,6 @@ sudo apt install -y openjdk-8-jre-headless
 mkdir /opt/jdownloader
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
-chown -R admin:1007 /opt/jdownloader
-#sudo su -c "java -jar /opt/jdownloader/JDownloader.jar &" admin
 
 #=================================================
 # NGINX CONFIGURATION
@@ -115,10 +113,8 @@ chown -R admin:1007 /opt/jdownloader
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
+
 cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
-cp -a ../conf/start.sh /opt/jdownloader/start.sh
-#ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
-#ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
@@ -143,7 +139,7 @@ cp -a ../conf/start.sh /opt/jdownloader/start.sh
 ### that really need such authorization.
 
 # Set permissions to app files
-#chown -R root: /etc/loolwsd
+chown -R admin:1007 /opt/jdownloader
 
 
 #=================================================
