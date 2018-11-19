@@ -15,10 +15,18 @@ JDownloader
 
          $ sudo yunohost app install --debug https://github.com/YunoHost-Apps/jdownloader_ynh
          
- 2. Run & Connect JDownloader :
+ 2. Create account :
+        
+         https://my.jdownloader.org/
+ 
+ 3. Run JDownloader :
  
          $ sudo java -jar /opt/jdownloader/JDownloader.jar -norestart
  
+ 4. Connect JDownloader :
+ 
+         in cli type y for connect with your mail and password
+         
 ### Upgrade this package:
 
         $ sudo yunohost app upgrade --verbose example -u https://github.com/YunoHost-Apps/jdownloader_ynh
