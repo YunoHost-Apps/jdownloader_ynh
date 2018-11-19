@@ -96,7 +96,7 @@ mkdir /opt/jdownloader
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
 chown admin /opt/jdownloader
-java -jar /opt/jdownloader/JDownloader.jar -norestart
+#java -jar /opt/jdownloader/JDownloader.jar -norestart
 
 #=================================================
 # NGINX CONFIGURATION
