@@ -95,8 +95,8 @@ sudo apt install -y openjdk-8-jre-headless
 mkdir /opt/jdownloader
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
-chown admin /opt/jdownloader
-#java -jar /opt/jdownloader/JDownloader.jar -norestart
+sudo chown -R admin /opt/jdownloader
+sudo su -c "java -jar /opt/jdownloader/JDownloader.jar &" admin
 
 #=================================================
 # NGINX CONFIGURATION
@@ -116,6 +116,7 @@ chown admin /opt/jdownloader
 # MODIFY A CONFIG FILE
 #=================================================
 cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
+cp -a ../conf/start.sh /opt/jdownloader/start.sh
 #ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
 #ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
 
