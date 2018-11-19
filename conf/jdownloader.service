@@ -1,16 +1,14 @@
 [Unit]
-Description=jdownloader
-After=network.target
+Description = JDownloader Service
+After = network.target
 
 [Service]
-WorkingDirectory=/opt/jdownloader/
-User=jdownloader
-Group=users
-Type=simple
-UMask=000
-ExecStart=/usr/bin/java -Djava.awt.headless=true -jar JDownloader.jar
-RestartSec=15
-Restart=always
+Environment = /opt/jdownloader
+Type = oneshot
+ExecStart = /usr/bin/java -Djava.awt.headless=true -jar /opt/jdownloader/JDownloader.jar
+RemainAfterExit = yes
+User = media
+Group = media
 
 [Install]
-WantedBy=multi-user.target
+WantedBy = multi-user.target

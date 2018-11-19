@@ -93,7 +93,7 @@ sudo apt install -y openjdk-8-jre-headless
 #==============================================
 
 sudo mkdir /opt/jdownloader
-wget --no-verbose 'https://github.com/YunoHost-Apps/jdownloader_ynh/releases/download/2.0/JDownloader.jar'
+wget http://installer.jdownloader.org/JDownloader.jar
 sudo mv JDownloader.jar /opt/jdownloader
 sudo chown admin /opt/jdownloader
 java -jar /opt/jdownloader/JDownloader.jar -norestart
@@ -110,7 +110,7 @@ java -jar /opt/jdownloader/JDownloader.jar -norestart
 #=================================================
 
 # Create a system user
-ynh_system_user_create $app
+#ynh_system_user_create $app
 
 #=================================================
 # MODIFY A CONFIG FILE
@@ -156,5 +156,5 @@ if [ $is_public -eq 1 ]; then
 fi
 
 # Reload services
-systemctl enable jdownloader.service
+sudo systemctl enable jdownloader.service
 #systemctl restart nginx
