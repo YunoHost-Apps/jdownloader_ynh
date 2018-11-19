@@ -95,8 +95,8 @@ sudo apt install -y openjdk-8-jre-headless
 mkdir /opt/jdownloader
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
-sudo chown -R admin /opt/jdownloader
-sudo su -c "java -jar /opt/jdownloader/JDownloader.jar &" admin
+chown -R admin:1007 /opt/jdownloader
+#sudo su -c "java -jar /opt/jdownloader/JDownloader.jar &" admin
 
 #=================================================
 # NGINX CONFIGURATION
