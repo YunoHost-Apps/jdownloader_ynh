@@ -93,6 +93,7 @@ ynh_package_install openjdk-8-jre-headless
 #==============================================
 
 mkdir /opt/jdownloader
+mkdir /var/www/jd
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
 
@@ -115,6 +116,7 @@ ynh_add_nginx_config
 #=================================================
 
 cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
+cp -a ../conf/dark.html /var/www/jd/index.html
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
@@ -126,7 +128,6 @@ cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
 
 # Calculate and store the config file checksum into the app settings
 #ynh_store_file_checksum "/etc/onlyoffice/documentserver/nginx/onlyoffice-documentserver.conf"
-
 
 #=================================================
 # GENERIC FINALIZATION
@@ -140,7 +141,6 @@ cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
 
 # Set permissions to app files
 chown -R admin:1007 /opt/jdownloader
-
 
 #=================================================
 # SETUP SSOWAT
