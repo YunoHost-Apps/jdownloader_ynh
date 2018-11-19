@@ -156,5 +156,5 @@ if [ $is_public -eq 1 ]; then
 fi
 
 # Reload services
-sudo systemctl enable jdownloader.service
+systemctl enable jdownloader.service
 #systemctl restart nginx
