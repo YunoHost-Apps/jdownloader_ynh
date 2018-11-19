@@ -6,7 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
+#source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -44,7 +44,7 @@ ynh_secure_remove "$final_path"
 #=================================================
 
 # Remove the dedicated nginx config
-ynh_remove_nginx_config
+#ynh_remove_nginx_config
 
 #=================================================
 # CLOSE A PORT
