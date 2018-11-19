@@ -23,14 +23,14 @@ final_path=$(ynh_app_setting_get $app final_path)
 # STANDARD REMOVE
 #=================================================
 
-ynh_package_remove emby-server
+#ynh_package_remove emby-server
 
 #=================================================
 # REMOVE DEPENDENCIES
 #=================================================
 
 # Remove metapackage and its dependencies
-#ynh_remove_app_dependencies
+ynh_remove_app_dependencies
 
 #=================================================
 # REMOVE APP MAIN DIR
@@ -66,7 +66,7 @@ fi
 ynh_secure_remove "/etc/cron.d/$app"
 
 # Remove a directory securely
-ynh_secure_remove "/etc/apt/sources.list.d/onlyoffice.list"
+ynh_secure_remove "/opt/jdownloader"
 
 
 # Remove the log files
