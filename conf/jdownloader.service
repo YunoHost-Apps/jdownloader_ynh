@@ -5,7 +5,7 @@ After=network.target
 [Service]
 WorkingDirectory=/opt/jdownloader/
 User=admin
-Group=users
+Group=1007
 Type=simple
 UMask=000
 ExecStart=/usr/bin/java -Djava.awt.headless=true -jar JDownloader.jar
