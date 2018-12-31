@@ -153,4 +153,4 @@ fi
 
 # Reload services
 systemctl enable jdownloader.service
-systemctl restart nginx
+systemctl reload nginx
