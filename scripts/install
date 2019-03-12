@@ -81,11 +81,20 @@ port=$(ynh_find_port 8080)
 yunohost firewall allow --no-upnp TCP $port 2>&1
 ynh_app_setting_set $app port $port
 
-#==============================================
-# INSTALL JAVA
-#==============================================
+#=================================================
+# INSTALL DEPENDENCIES
+#=================================================
 
-ynh_package_install openjdk-8-jre-headless
+ynh_print_info "Installing dependencies..."
+
+### `ynh_install_app_dependencies` allows you to add any "apt" dependencies to the package.
+### Those deb packages will be installed as dependencies of this package.
+### If you're not using this helper:
+###		- Remove the section "REMOVE DEPENDENCIES" in the remove script
+###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
+###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
+
+ynh_install_app_dependencies openjdk-8-jre-headless
 
 #==============================================
 # INSTALL JDOWNLOADER
@@ -95,6 +104,13 @@ mkdir /opt/jdownloader
 mkdir /var/www/$path_url
 wget http://installer.jdownloader.org/JDownloader.jar
 mv JDownloader.jar /opt/jdownloader
+
+#=================================================
+# SETUP SYSTEMD
+#=================================================
+
+ynh_add_systemd_config
+systemctl enable $app.service
 
 #=================================================
 # NGINX CONFIGURATION
@@ -114,7 +130,6 @@ ynh_add_nginx_config
 # MODIFY A CONFIG FILE
 #=================================================
 
-cp -a ../conf/jdownloader.service /etc/systemd/system/jdownloader.service
 cp -a ../conf/dark.html /var/www/$path_url/index.html
 
 #=================================================
@@ -152,5 +167,5 @@ if [ $is_public -eq 1 ]; then
 fi
 
 # Reload services
-systemctl enable jdownloader.service
+systemctl enable $app.service
 systemctl reload nginx
