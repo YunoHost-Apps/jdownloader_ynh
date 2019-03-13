@@ -30,5 +30,5 @@ JDownloader
          
 ### Upgrade this package:
 
-        $ sudo yunohost app upgrade --verbose example -u https://github.com/YunoHost-Apps/jdownloader_ynh
+        $ sudo yunohost app upgrade jdownloader -u https://github.com/YunoHost-Apps/jdownloader_ynh
 
